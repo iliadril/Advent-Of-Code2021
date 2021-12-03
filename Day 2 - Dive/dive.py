@@ -12,12 +12,13 @@ print(f'Horizontal distance: {horizontal}\nVertical distance: {vertical}\nProduc
 # ---------------------------------- PART TWO ----------------------------------
 horizontal, depth, aim = 0, 0, 0
 for comm, n in data:
-    if comm == 'down':
-        aim += n
-    elif comm == 'up':
-        aim -= n
-    else:
-        horizontal += n
-        depth += n*aim
+    match comm:
+        case 'down':
+            aim += n
+        case 'up':
+            aim -= n
+        case 'forward':
+            horizontal += n
+            depth += n*aim
 
 print(f'Horizontal distance: {horizontal}\nVertical distance: {depth}\nProduct: {horizontal*depth}')
